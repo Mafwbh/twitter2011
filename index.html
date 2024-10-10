@@ -1,0 +1,371 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retro Twitter</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', Arial, sans-serif;
+            background-color: #C0DEED;
+            margin: 0;
+            padding: 20px 20px 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+        .banner {
+            background-color: #00ACED;
+            color: white;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .banner button {
+            background-color: #FFAC33;
+            color: black;
+            border: none;
+            padding: 8px 15px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        .header {
+            background-color: #ffffff;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            width: 144px;
+            height: auto;
+        }
+        .nav {
+            background-color: white;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .nav a {
+            color: #0084B4;
+            text-decoration: none;
+            margin-left: 15px;
+        }
+        .content {
+            display: flex;
+            padding: 20px;
+            flex-grow: 1;
+        }
+        .main {
+            flex: 2;
+            padding-right: 20px;
+        }
+        .sidebar {
+            flex: 1;
+        }
+        .tweet-box {
+            margin-bottom: 20px;
+        }
+        textarea {
+            width: 100%;
+            height: 100px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            box-sizing: border-box;
+            font-family: 'Inter', Arial, sans-serif;
+            resize: none;
+        }
+        .tweet-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .tweet-button {
+            background-color: #9AE4E8;
+            color: #333;
+            border: 1px solid #9AE4E8;
+            padding: 5px 15px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .tweet {
+            border-bottom: 1px solid #e1e8ed;
+            padding: 10px 0;
+            overflow: hidden;
+        }
+        .tweet img {
+            float: left;
+            margin-right: 10px;
+            width: 48px;
+            height: 48px;
+        }
+        .user-profile {
+            background-color: #F5F8FA;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        .user-profile-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .user-profile-header img {
+            width: 48px;
+            height: 48px;
+            margin-right: 10px;
+        }
+        .user-profile-info h3 {
+            margin: 0;
+        }
+        .user-profile-info p {
+            margin: 0;
+            color: #657786;
+            font-size: 12px;
+        }
+        .user-stats {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+        .user-stats div {
+            text-align: center;
+        }
+        .user-stats div span {
+            display: block;
+            color: #657786;
+            font-size: 12px;
+        }
+        .char-count {
+            color: #999;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .more-button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #f5f8fa;
+            border: 1px solid #e1e8ed;
+            color: #1da1f2;
+            text-align: center;
+            text-decoration: none;
+            margin-top: 10px;
+        }
+        .footer {
+            background-color: #C0DEED;
+            padding: 10px 20px;
+            text-align: left;
+            font-size: 12px;
+            color: #333;
+            margin-top: 20px;
+        }
+        .footer-content {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .footer-links {
+            background-color: white;
+            padding: 10px 20px;
+            margin: 10px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .footer-links span {
+            color: #333;
+        }
+        .footer-links-right {
+            display: flex;
+            gap: 20px;
+        }
+        .footer-links-right a {
+            color: #0084B4;
+            text-decoration: none;
+        }
+        a {
+            color: #1da1f2;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="banner">
+            <span>You're using an older version of Twitter that won't be around for much longer.</span>
+            <button>Switch to New Twitter!</button>
+        </div>
+        <div class="header">
+            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Twitter-Logo-2006%20(1)-7kllXbL4Szg4FjzzeJCn4LRTBkRdv8.png" alt="Twitter Logo" class="logo">
+            <nav class="nav">
+                <a href="#">Home</a>
+                <a href="#">Profile</a>
+                <a href="#">Find People</a>
+                <a href="#">Settings</a>
+                <a href="#">Help</a>
+                <a href="#">Sign out</a>
+            </nav>
+        </div>
+        <div class="content">
+            <div class="main">
+                <div class="tweet-box">
+                    <h2>What's happening?</h2>
+                    <textarea id="tweet-input" maxlength="140"></textarea>
+                    <div class="tweet-actions">
+                        <span>Share your first tweet with the world!</span>
+                        <div>
+                            <span class="char-count">140</span>
+                            <button class="tweet-button" onclick="postTweet()">Tweet</button>
+                        </div>
+                    </div>
+                </div>
+                <h2>Home</h2>
+                <div id="tweet-feed">
+                    <div class="tweet">
+                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/jS8I28PL_400x400-px4o2p3IeHbE9nOCjpgoe6dhrQ7JUu.jpg" alt="User avatar">
+                        <strong>elonmusk</strong> Neuralink demo coming soon. The potential for neural interfaces is truly mind-boggling.
+                        <br>
+                        <small style="color: #657786;">half a minute ago from web</small>
+                    </div>
+                    <div class="tweet">
+                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/jS8I28PL_400x400-px4o2p3IeHbE9nOCjpgoe6dhrQ7JUu.jpg" alt="User avatar">
+                        <strong>elonmusk</strong> Thinking about the future of sustainable energy. Solar and batteries are the way forward.
+                        <br>
+                        <small style="color: #657786;">less than a minute ago from Android</small>
+                    </div>
+                    <div class="tweet">
+                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/jS8I28PL_400x400-px4o2p3IeHbE9nOCjpgoe6dhrQ7JUu.jpg" alt="User avatar">
+                        <strong>elonmusk</strong> Just finished a great book on AI. The pace of progress in this field is astonishing.
+                        <br>
+                        <small style="color: #657786;">less than a minute ago from web</small>
+                    </div>
+                    <div class="tweet">
+                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/jS8I28PL_400x400-px4o2p3IeHbE9nOCjpgoe6dhrQ7JUu.jpg" alt="User avatar">
+                        <strong>elonmusk</strong> Just had a great meeting with the SpaceX team. Exciting progress on Starship!
+                        <br>
+                        <small style="color: #657786;">less than 5 seconds ago from web</small>
+                    </div>
+                    <div class="tweet">
+                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/jS8I28PL_400x400-px4o2p3IeHbE9nOCjpgoe6dhrQ7JUu.jpg" alt="User avatar">
+                        <strong>elonmusk</strong> Tesla's new Cybertruck design is even better than what was unveiled. Can't wait to show it off!
+                        <br>
+                        <small style="color: #657786;">less than 20 seconds ago from iPhone</small>
+                    </div>
+                </div>
+                <a href="#" class="more-button">more</a>
+            </div>
+            <div class="sidebar">
+                <div class="user-profile">
+                    <div class="user-profile-header">
+                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/jS8I28PL_400x400-px4o2p3IeHbE9nOCjpgoe6dhrQ7JUu.jpg" alt="Elon Musk">
+                        <div class="user-profile-info">
+                            <h3>elonmusk</h3>
+                            <p>14,285 tweets</p>
+                        </div>
+                    </div>
+                    <div class="user-stats">
+                        <div>
+                            <strong>178</strong>
+                            <span>following</span>
+                        </div>
+                        <div>
+                            <strong>84.2M</strong>
+                            <span>followers</span>
+                        </div>
+                        <div>
+                            <strong>1,345</strong>
+                            <span>listed</span>
+                        </div>
+                    </div>
+                    <p>Technoking of Tesla, Imperator of Mars, Destroyer of Shorts</p>
+                    <a href="#">https://t.co/J6TuBcOQkr</a>
+                </div>
+                <div>
+                    <h3>Similar to elonmusk</h3>
+                    <ul>
+                        <li><a href="#">@SpaceX</a></li>
+                        <li><a href="#">@Tesla</a></li>
+                        <li><a href="#">@Neuralink</a></li>
+                        <li><a href="#">@boringcompany</a></li>
+                        <li><a href="#">@Jack</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Trending: Worldwide</h3>
+                    <ul>
+                        <li><a href="#">#SpaceX</a></li>
+                        <li><a href="#">#Tesla</a></li>
+                        <li><a href="#">#Neuralink</a></li>
+                        <li><a href="#">#Cybertruck</a></li>
+                        <li><a href="#">#Mars</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <span>© 2011 Twitter</span>
+                <div class="footer-links-right">
+                    <a href="#">About Us</a>
+                    <a href="#">Contact</a>
+                    <a href="#">Blog</a>
+                    <a href="#">Status</a>
+                    <a href="#">Resources</a>
+                    <a href="#">API</a>
+                    <a href="#">Business</a>
+                    <a href="#">Help</a>
+                    <a href="#">Jobs</a>
+                    <a href="#">Terms</a>
+                    <a href="#">Privacy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script>
+        const tweetInput = document.getElementById('tweet-input');
+        const charCount = document.querySelector('.char-count');
+        const tweetFeed = document.getElementById('tweet-feed');
+
+        tweetInput.addEventListener('input', function() {
+            const remainingChars = 140 - this.value.length;
+            charCount.textContent = remainingChars;
+            charCount.style.color = remainingChars < 20 ? 'red' : '#999';
+        });
+
+        function postTweet() {
+            const tweetContent = tweetInput.value.trim();
+            if (tweetContent) {
+                const newTweet = document.createElement('div');
+                newTweet.className = 'tweet';
+                newTweet.innerHTML = `
+                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/jS8I28PL_400x400-px4o2p3IeHbE9nOCjpgoe6dhrQ7JUu.jpg" alt="User avatar">
+                    
+                    <strong>elonmusk</strong> ${tweetContent}
+                    <br>
+                    <small style="color: #657786;">just now from web</small>
+                `;
+                tweetFeed.insertBefore(newTweet, tweetFeed.firstChild);
+                tweetInput.value = '';
+                charCount.textContent = '140';
+            }
+        }
+    </script>
+</body>
+</html>
